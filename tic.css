@@ -46,7 +46,10 @@ background-color: #EEEEEE;
 border: 1px solid black;
 text-align: center;
 font-size: 5rem;
-
+}
+.box:hover{
+    background: rgb(174, 244, 255);
+    color: rgb(108, 108, 108);
 }
 .player{
     font-size: 5rem;
