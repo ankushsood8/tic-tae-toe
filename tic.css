@@ -167,7 +167,7 @@ font-size: 5rem;
 
 #score{
    width: 35%; 
-   left:150;
+   left:190;
    
 }
 #button1{
@@ -179,7 +179,7 @@ font-size: 5rem;
    
 }
   }
-  @media only screen and (max-width: 400px) {  
+  @media only screen and (max-width: 500px) {  
 
     #score{
        width: 55%; 
