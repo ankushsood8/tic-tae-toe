@@ -82,6 +82,22 @@ var visited=["false","false","false","false","false","false","false","false","fa
 
 function cputintelligence(){
   let checking=false;
+  // backtraking for winning condition
+  for(let i=0;i<9;i++){
+    if(document.getElementById(i).innerHTML==''){
+      document.getElementById(i).innerHTML='O';
+      if(check()==true){
+
+      document.getElementById(i).innerHTML='';
+      console.log(i);
+        return i;
+      }
+      else{
+       document.getElementById(i).innerHTML='';
+      }
+    }
+  }
+  // backtracking to stop oppenent from winning 
   for(let i=0;i<9;i++){
     if(document.getElementById(i).innerHTML==''){
       document.getElementById(i).innerHTML='X';
