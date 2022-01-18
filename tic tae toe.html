@@ -1,0 +1,257 @@
+<html>
+<head>
+<title>Tic Tae Toe</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="tic.css">
+</head>
+<body>
+<div id="fullpage">
+  <div class="alert alert-primary" role="alert" style="text-align: center;font-size: 4rem;"> TIC TAE TOE
+    
+  </div>
+<div id="outerdiv">
+<div id="maindiv">
+    <div class="upper">
+      <div class="box" onclick="display('0')" id="0"></div>
+      <div class="box" onclick="display('1')"  id="1"></div> 
+      <div class="box" onclick="display('2')"  id="2"></div> 
+    </div>
+    <div class="upper">
+        <div class="box" onclick="display('3')"  id="3"></div>
+        <div class="box" onclick="display('4')"  id="4"></div> 
+        <div class="box" onclick="display('5')"  id="5"></div> 
+    </div>
+    <div class="upper">
+        <div class="box" onclick="display('6')"  id="6"></div>
+        <div class="box" onclick="display('7')"  id="7"></div> 
+        <div class="box" onclick="display('8')"  id="8"></div> 
+    </div>
+</div>
+<div id="score">
+  <div id="playerscore1">
+  <div id="player1">
+    <center>
+    <span class="player">Player 1</span>
+  </center>
+  </div>
+  <div id=player2>
+    <center>
+    <span class="player" id="change">CPU</span>
+    </center>
+  </div>
+  </div>
+  <div id="playerscore2">
+  <div id="player1score">
+    <center>
+    <span id="scorediv1">0</span>
+  </center>
+  </div>
+  <div id="player2score">
+    <center>
+    <span id="scorediv2">0</span>
+    </center>
+    
+  </div>
+
+</div>
+</div>
+</div>
+<div id="playerchoice">
+<button id="button1" onclick="turndecide('single')">
+Single Player
+</button>
+<button id="button2" onclick="turndecide('multi')">
+Multiplayer
+</button>
+</div>
+</div>
+
+</body>
+
+<script>
+var turn=0;
+var value="X";
+var playerchoice='single';
+var x=0;
+var scorefirst=document.getElementById("scorediv1");
+var scoresecond=document.getElementById("scorediv2");
+var visited=["false","false","false","false","false","false","false","false","false"];
+
+function cputintelligence(){
+  let checking=false;
+  for(let i=0;i<9;i++){
+    if(document.getElementById(i).innerHTML==''){
+      document.getElementById(i).innerHTML='X';
+      if(check()==true){
+
+      document.getElementById(i).innerHTML='';
+      console.log(i);
+        return i;
+      }
+      else{
+       document.getElementById(i).innerHTML='';
+      }
+    }
+  }
+  if(checking==false)
+  console.log("random");
+  return Math.floor((Math.random() * 8) + 1);
+}
+
+
+
+
+function turndecide(name){
+  if(name=='multi'){
+    playerchoice='multi';
+    document.getElementById("change").innerHTML="Player 2";
+  }
+  if(name=='single'){
+    playerchoice='single';
+    document.getElementById("change").innerHTML="CPU";
+  }
+
+}
+    function display(name){   
+    if(turn==0&&visited[name]=="false"){   
+       document.getElementById(name).innerHTML=value;
+       visited[name]="true";
+         p=check();
+        turn=1;
+        value="O";
+        if(p==true){
+          x=1;
+     }     
+    }  
+        
+    if(playerchoice=='single'&&x==0){
+     cputurn();
+   }
+   if(p==true){ 
+     alert("You Win");
+     scorefirst.innerHTML=Number(scorefirst.innerHTML)+Number(1);
+       clear();
+     }
+  
+   if(turn==1&&visited[name]=="false"&&playerchoice=='multi'){
+        document.getElementById(name).innerHTML=value;
+        visited[name]="true";
+      
+        var p=check();
+        turn=0;
+        value="X";
+        if(p==true){
+          alert("Second player wins");
+          scoresecond.innerHTML=Number(scoresecond.innerHTML)+Number(1);
+          clear();
+        }
+    }
+  }
+  function clear(){
+    turn=0;
+    value="X";
+    p='false';
+    x=0;
+    for(let i=0;i<=8;i++){
+      document.getElementById(i).innerHTML='';
+      visited[i]="false";
+    }
+  
+  }
+function cputurn(){
+  var randomno=cputintelligence();
+  if(visited[randomno]=="false"&&document.getElementById(randomno).innerHTML==''){
+  document.getElementById(randomno).innerHTML=value;
+visited[randomno]=true;
+  var l=check();
+  turn=0;
+value="X";
+if(l==true){
+ alert("computer wins");
+ scoresecond.innerHTML=Number(scoresecond.innerHTML)+Number(1);
+  clear();
+}
+  }
+  else{
+    cputurn();
+  }
+
+}
+function check(){
+var firstbox=document.getElementById("0").innerHTML;
+var secondbox=document.getElementById("1").innerHTML;
+var thirdbox=document.getElementById("2").innerHTML;
+var fourthbox=document.getElementById("3").innerHTML;
+var fifthbox=document.getElementById("4").innerHTML;
+var sixthbox=document.getElementById("5").innerHTML;
+var seventhbox=document.getElementById("6").innerHTML;
+var eightbox=document.getElementById("7").innerHTML;
+var ninthbox=document.getElementById("8").innerHTML;
+if((firstbox==secondbox&&secondbox==thirdbox&&thirdbox==firstbox)&&firstbox!=''&&secondbox!=''&&thirdbox!=''){
+
+
+return true;
+
+    }
+   
+  else  if((fourthbox==fifthbox&&fifthbox==sixthbox&&sixthbox==fourthbox)&&fourthbox!=''&&fifthbox!=''&&sixthbox!=''){
+
+
+return true;
+
+    }
+ 
+  else  if((seventhbox==eightbox&&eightbox==ninthbox&&ninthbox==seventhbox)&&seventhbox!=''&&eightbox!=''&&ninthbox!=''){
+
+
+return true;
+
+    }
+  
+  else  if((firstbox==fifthbox&&fifthbox==ninthbox&&ninthbox==firstbox)&&firstbox!=''&&fifthbox!=''&&ninthbox!=''){
+
+
+return true;
+
+    }
+  
+ 
+    else   if((thirdbox==fifthbox&&fifthbox==seventhbox&&seventhbox==thirdbox)&&thirdbox!=''&&fifthbox!=''&&seventhbox!=''){
+
+
+return true;
+    }
+    
+
+  else  if((firstbox==fourthbox&&fourthbox==seventhbox&&seventhbox==firstbox)&&firstbox!=''&&fourthbox!=''&&seventhbox!=''){
+
+
+return true;
+    }
+
+   
+  else  if((secondbox==fifthbox&&fifthbox==eightbox&&eightbox==secondbox)&&secondbox!=''&&fifthbox!=''&&eightbox!=''){
+
+
+return true;
+    }
+  
+  else  if((thirdbox==sixthbox&&sixthbox==ninthbox&&ninthbox==thirdbox)&&thirdbox!=''&&sixthbox!=''&&ninthbox!=''){
+
+
+return true;
+    }
+  
+else if(firstbox!=''&&secondbox!=''&&thirdbox!=''&&fourthbox!=''&&fifthbox!=''&&sixthbox!=''&&seventhbox!=''&&eightbox!=''&&ninthbox!=''){
+alert("tie");
+setTimeout(function(){ clear(); },500);
+
+}
+    }
+        
+    
+    </script>
+    </html>

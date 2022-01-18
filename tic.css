@@ -1,0 +1,195 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+#fullpage{
+    height:100%;
+    width:100%;
+    background-color: #cce5ff;
+}
+#outerdiv{
+    height:50%;
+    width:100%;
+    background-color: #cce5ff;
+    display: flex;
+}
+#maindiv{
+    height:100%;
+    width:50%;
+    margin-left: 2%;
+    background-color: #cce5ff;
+}
+
+#score{
+background-color:#cce5ff;
+height: 25%;
+width: 30%;
+position: absolute;
+right: 65;
+
+
+}
+.upper{
+    width: 100%;
+    height: 33%;
+    background-color: #cce5ff;
+    
+}
+.box{
+width: 33.3%;
+float: left;
+height: 100%;
+background-color: #EEEEEE;
+border: 1px solid black;
+text-align: center;
+font-size: 5rem;
+
+}
+.player{
+    font-size: 5rem;
+    text-align: center;
+}
+#playerscore1{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    background-color: black;
+    
+   
+}
+#player1{
+background-color: #cce5ff;
+width: 50%;
+height: 100%;
+border-right:2px solid black;
+}
+#player2{
+    background-color: #cce5ff;
+    width: 50%;
+height: 100%;
+border-left:2px solid black;
+}
+#playerscore2{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    background-color: black; 
+   
+}
+#player1score{
+    background-color: #cce5ff;
+    width: 50%;
+    height: 100%;
+    border-top:4px solid black;
+    border-right:2px solid black;
+    }
+    #player2score{
+    background-color: #cce5ff;
+    width: 50%;
+    height: 100%;
+    border-top:4px solid black;
+    border-left:2px solid black;
+    }
+    #scorediv1{
+font-size: 5rem;
+    }
+    #scorediv2{
+font-size: 5rem;
+    }
+#playerchoice{
+    width: 100%;
+    height: 25%;
+    background-color: #cce5ff;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+#button1{
+    width: 10%;
+    height: 28%;
+    border-radius: 10px;
+    background-color: cyan;
+    
+  
+}
+#button2{
+    width: 10%;
+    height: 28%;
+    border-radius: 10px;
+    background-color: cyan;
+   
+
+}
+@media only screen and (max-width: 1270px) {  
+    .player{
+      font-size: 4rem;    
+    }
+    
+  }
+  @media only screen and (max-width: 1000px) {  
+    .player{
+      font-size: 3.5rem;    
+    }
+    
+  }
+  @media only screen and (max-width: 875px) {  
+    .player{
+      font-size: 3rem;    
+    }
+    
+  }
+  @media only screen and (max-width: 778px) {  
+    #outerdiv{
+        height: 65%;
+        display: flex;
+        justify-content: center;
+    }
+    #maindiv{
+        height: 50%;
+       
+    }
+    #score{
+        bottom: 120;
+        right:250;
+    }
+    #button1{
+        width: 15%;
+    }
+    #button2{
+        width: 15%;
+    }
+    
+  }
+  @media only screen and (max-width: 650px) {  
+
+#score{
+   width: 35%; 
+   left:150;
+   
+}
+#button1{
+    width: 20%;
+   
+}
+#button2{
+    width: 20%;
+   
+}
+  }
+  @media only screen and (max-width: 400px) {  
+
+    #score{
+       width: 55%; 
+       
+       
+    }
+    #button1{
+        width: 30%;
+    }
+    #button2{
+        width: 30%;
+    }
+      }
