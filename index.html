@@ -149,7 +149,7 @@ function turndecide(name){
    if(p==true){ 
      alert("You Win");
      scorefirst.innerHTML=Number(scorefirst.innerHTML)+Number(1);
-       clear();
+     setTimeout(function(){ clear(); },500);
      }
   
    if(turn==1&&visited[name]=="false"&&playerchoice=='multi'){
@@ -162,7 +162,7 @@ function turndecide(name){
         if(p==true){
           alert("Second player wins");
           scoresecond.innerHTML=Number(scoresecond.innerHTML)+Number(1);
-          clear();
+          setTimeout(function(){ clear(); },500);
         }
     }
   }
@@ -188,7 +188,7 @@ value="X";
 if(l==true){
  alert("computer wins");
  scoresecond.innerHTML=Number(scoresecond.innerHTML)+Number(1);
-  clear();
+ setTimeout(function(){ clear(); },500);
 }
   }
   else{
